@@ -34,23 +34,28 @@ class GraphMemoryBuilder:
         self.graph_data_2 = graph_data_2
 
 
-    def make_graph_cpu(self):
+    def make_graph_memory(self):
         # Устанавливаем размер графика
         fig, ax = plt.subplots(figsize=(8, 4))
+
         # Устанавливаем подписи
-        ax.set_title("Утилизация CPU", fontsize=16)
-        ax.set_ylabel('Значение коэфициента', fontsize=10)
+        ax.set_title("Утилизация памяти", fontsize=16)
+        ax.set_ylabel('Утилизация памяти, %', fontsize=10)
         ax.set_xlabel('Продолжительность теста, ч:мм', fontsize=10)
+
         fig.tight_layout()
+
         # Строим график
-        plt.plot(self.dates, self.graph_data_1, label='Утилизация CPU')
-        plt.plot(self.dates, self.graph_data_2, label='Длина очереди CPU')
+        plt.plot(self.dates, self.graph_data_1, label='Утилизация памяти')
+        plt.plot(self.dates, self.graph_data_2, label='Утилизация подкачки')
         # Устанавливаем сетку
         plt.grid()
         # Устанавливаем легенду
-        plt.legend(loc='upper right')
-        plt.savefig("../result/graph_cpu.png")
+        plt.legend()
 
+        plt.gcf()
+        # создать файл с графиком
+        plt.savefig("../result/graph_memory.png")
 
-    def show_cpu_graph(self):
+    def show_memory_graph(self):
         plt.show()
