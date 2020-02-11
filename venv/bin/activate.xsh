@@ -28,7 +28,7 @@ def _deactivate(args):
 _deactivate(["nondestructive"])
 aliases["deactivate"] = _deactivate
 
-$VIRTUAL_ENV = r"/home/dima/Documents/IPR/IPR_first_column/python_graphs/grafics/venv"
+$VIRTUAL_ENV = r"/home/dima/Documents/PYTHON_PRACTICA/data_analyze/venv"
 
 $_OLD_VIRTUAL_PATH = $PATH
 $PATH = $PATH[:]

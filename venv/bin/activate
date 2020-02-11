@@ -46,7 +46,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/dima/Documents/IPR/IPR_first_column/python_graphs/grafics/venv"
+VIRTUAL_ENV="/home/dima/Documents/PYTHON_PRACTICA/data_analyze/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

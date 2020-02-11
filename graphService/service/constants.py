@@ -10,7 +10,6 @@ from yaml import load, SafeLoader
 def load_config(path_to_config):
     """Загружает конфигурационный файл в формате словаря"""
     with open(path_to_config) as f:
-        print('Configuration file have loaded')
         return load(f, Loader=SafeLoader)
 
 MAKERS = {

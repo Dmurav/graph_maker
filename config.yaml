@@ -1,0 +1,7 @@
+CPU: 'data_source/CPU_data.xlsx'
+MEMORY: 'data_source/MEMORY.xlsx'
+NET: 'data_source/NET.xlsx'
+LOAD_AVG: 'data_source/LOAD_avg.xlsx'
+UTIL_DISK_CPU: 'data_source/DISK_cpu.xlsx'
+DISK_QUEUE: 'data_source/DISK_q.xlsx'
+DISK_AWG_RW: 'data_source/DISK_avg_rw.xlsx'

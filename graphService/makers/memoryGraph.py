@@ -1,8 +1,9 @@
-import openpyxl
 import matplotlib.pyplot as plt
 
+from graphService.makers.dataMaker import prepareData
 
-class GraphMemoryBuilder:
+
+class GraphMemoryMaker:
     source_file = ""
     dates = []
     graph_data_1 = []
@@ -12,29 +13,12 @@ class GraphMemoryBuilder:
         self.source_file = source_file
 
     def prepare_data(self):
-        # Создаём объект с данными из Excel
-        wb = openpyxl.load_workbook(self.source_file)
-        # Выбираем активный лист в книге
-        sheet = wb.active
-        # Вычисляем число строк и колонок
-        rows = sheet.max_row
-        cols = sheet.max_column
-        # Заполняем списки для графика
-        dates = []
-        graph_data_1 = []
-        graph_data_2 = []
+        list_data = prepareData(self.source_file)
+        self.dates = list_data[0]
+        self.graph_data_1 = list_data[1]
+        self.graph_data_2 = list_data[2]
 
-        for i in range(1, rows + 1):
-            dates.append(sheet.cell(row=i, column=1).value)
-            graph_data_1.append(sheet.cell(row=i, column=2).value)
-            graph_data_2.append(sheet.cell(row=i, column=3).value)
-
-        self.dates = dates
-        self.graph_data_1 = graph_data_1
-        self.graph_data_2 = graph_data_2
-
-
-    def make_graph_memory(self):
+    def make_graph(self):
         # Устанавливаем размер графика
         fig, ax = plt.subplots(figsize=(8, 4))
 
@@ -55,7 +39,7 @@ class GraphMemoryBuilder:
 
         plt.gcf()
         # создать файл с графиком
-        plt.savefig("../result/graph_memory.png")
+        plt.savefig("result/graph_memory.png")
 
-    def show_memory_graph(self):
+    def show(self):
         plt.show()
